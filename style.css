@@ -1,9 +1,15 @@
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
+    font-family: 'Times New Roman', Times, serif, sans-serif;
+    text-align: left;
     background-color: #f0f0f0;
+    
 }
 
 h1 {
     color: #333;
+}
+
+table
+{
+    width: 50%;
 }
