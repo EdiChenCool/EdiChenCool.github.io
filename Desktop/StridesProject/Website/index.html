@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>StrideForSuccess</title>
+    <style>
+      table
+      {
+        text-align: center;
+      }
+      td 
+      {
+        text-align: center;
+      }
+    </style>
+</head>
+
+<body style = "background-color: #aa0606; 
+text-align: center; font-family: 'Times New Roman', Times, serif; font-size: xx-large;">
+
+    <h1><b>Stride For Success</b></h1>
+    <script src="script.js"></script>
+
+    <p>Nico is bad</p>
+
+   
+    
+    <button onclick="changeText()">Display Image</button>
+
+    <div id="imageContainer">
+        <img id="myImage" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/1x1.png" alt="Image">
+    </div>
+ 
+
+    <p id="output"></p>
+
+ <!-- <img src="https://t4.ftcdn.net/jpg/00/97/58/97/360_F_97589769_t45CqXyzjz0KXwoBZT9PRaWGHRk5hQqQ.jpg" alt="Cat Image" >   -->
+    <script>
+        function changeText() {
+            var outputElement = document.getElementById("output");
+            var myImage = document.getElementById("myImage");
+            myImage.src = "https://t4.ftcdn.net/jpg/00/97/58/97/360_F_97589769_t45CqXyzjz0KXwoBZT9PRaWGHRk5hQqQ.jpg";
+            outputElement.style.display = "block";
+        }
+    </script>
+    
+</body> <!--the end of the body-->
+
+<table style="background-color:#33475b; text-align: center; color: aquamarine; width: 100%;">
+  <tr >
+    <th>Name</th>
+    <th>Job Title</th>
+    <th>Email Address</th>
+  </tr>
+  <tr>
+    <td>Nico Mantekas</td>
+    <td>CEO</td>
+    <td>nico@syossetschools.org</td>
+  </tr>
+  <tr>
+    <td>Tyler Gay Knee</td>
+    <td>Head of Do-Nothingers</td>
+    <td>example@company.com</td>
+  </tr>
+  <tr>
+    <td>Matthew Kuznetz</td>
+    <td>Something</td>
+    <td>example@company.com</td>
+  <tr>
+</table> 
+
+<p>
+  <a href = "about.html">About Us
+</p>
+</html>
+
