@@ -15,7 +15,9 @@
       {
         text-align: center;
       }
+      
     </style>
+    
 </head>
 
 <body style = "background-color: #aa0606; 
@@ -31,84 +33,32 @@ text-align: center; font-family: 'Times New Roman', Times, serif; font-size: xx-
     <button onclick="changeText()">Display Image</button>
 
     <div id="imageContainer">
-        <img id="myImage" src="" alt="Image">
+        <img id="myImage" src="https://t4.ftcdn.net/jpg/00/97/58/97/360_F_97589769_t45CqXyzjz0KXwoBZT9PRaWGHRk5hQqQ.jpg" alt="Image" style = "display: none;">
     </div>
  
 
     <p id="output"></p>
 
- <!--just displays an image <img src="data:image/jpeg;base64,/9j/4A
-    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
-    Sla2YpSlApSlB/9k=" alt="Cat Image" > -->   
+ <!-- <img src="https://t4.ftcdn.net/jpg/00/97/58/97/360_F_97589769_t45CqXyzjz0KXwoBZT9PRaWGHRk5hQqQ.jpg" alt="Cat Image" >   -->
     <script>
+      var count = 0;
         function changeText() {
-            var outputElement = document.getElementById("output");
-            var myImage = document.getElementById("myImage");
-            myImage.src = "C:\Users\lovee\Downloads\testImageStrides.jpg";
-            outputElement.style.display = "block";
+
+          var myImage = document.getElementById("myImage");
+          var imageContainer = document.getElementById("imageContainer");
+
+          if (myImage.style.display === "none") {
+                
+                myImage.style.display = "block";
+                myImage.style.margin = "0 auto";
+            } else {
+                
+                myImage.style.display = "none";
+                myImage.style.margin = "";
+            }
+            
         }
+       
     </script>
     
 </body> <!--the end of the body-->
@@ -120,19 +70,19 @@ text-align: center; font-family: 'Times New Roman', Times, serif; font-size: xx-
     <th>Email Address</th>
   </tr>
   <tr>
-    <td>Nico Stuff</td>
+    <td>Nico Mantekas</td>
     <td>CEO</td>
     <td>nico@syossetschools.org</td>
   </tr>
   <tr>
-    <td>John Smith</td>
-    <td>Marketing Manager</td>
-    <td>example2@company.com</td>
+    <td>Tyler Gay Knee</td>
+    <td>Head of Do-Nothingers</td>
+    <td>example@company.com</td>
   </tr>
   <tr>
-    <td>Zendaya Grace</td>
-    <td>CEO</td>
-    <td>example2@company.com</td>
+    <td>Matthew Kuznetz</td>
+    <td>Something</td>
+    <td>example@company.com</td>
   <tr>
 </table> 
 
