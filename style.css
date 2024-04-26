@@ -26,36 +26,31 @@
     border: none;
     outline: none;
     color: #fff;
-    padding: 14px 16px;
+    padding: 14px 14px;
     background-color: inherit;
     font-family: 'Courier New', Courier, monospace;
 }
 
-/* Style for the dropdown content */
 .dropdown-content {
-    
-    display:none;
+    display: none;
     position: absolute;
     background-color: #333;
-    min-width: 20px ;
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-    text-align: left;
-
-    /*margin-top: 50px;*/ /* Adjust this value to position the dropdown content */
+    width: 3000px; /* Adjusted width for dropdown content */
+    max-height: 100; /* Set maximum height for dropdown content */
+    overflow-y: auto; /* Enable vertical scrolling if content exceeds max height */
+    text-align: center; /* Left-align dropdown content */
+    left: 0; /* Left-align dropdown content */
 }
 
 .dropdown-content a {
-    float: none;
     color: #fff;
-    padding: 12px 16px;
+    padding: 10px 200px; /* Adjusted padding for dropdown content buttons */
     text-decoration: none;
     display: block;
-    text-align: right;
-    
+    line-height: 30px; /* Set line height equal to button height */
+    min-width: 50px; /* Set a minimum width for all buttons */
+  
 }
-
-
-
 
 /* Change color on hover */
 .navbar a:hover, .dropdown:hover .dropdown-btn {
@@ -68,8 +63,9 @@
     display: block;
 }
 .navbar a:first-child {
-    margin-left: 50px; /* Add margin to the left of the first link */
+    margin-left: 20px; /* Adjusted margin */
 }
-.navbar a:nth-child(2), .navbar a:nth-child(3) {
-    margin-left: 300px; /* Add margin to the left of the second link */
+
+.navbar a:not(:first-child) {
+    margin-left: 10px; /* Adjusted margin for all links except the first */
 }
