@@ -47,7 +47,6 @@
   }
 }
 
-
   </style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -71,21 +70,25 @@
  </div>
  <div class="buttons-container">
   <button onclick="easyMode()">Easy Mode</button>
-  <button onclick="startGame()">Medium Mode</button>
-  <button onclick="startGame()">Hard Mode</button>
+  <button onclick="mediumMode()">Medium Mode</button>
+  <button onclick="hardMode()">Hard Mode</button>
 </div>
 <div class="slider-container">
   <input type="range" min="1" max="10" value="2" class="slider" id="speedSlider">
   <label for="speedSlider">Snake Speed: </label>
   <span id="speedValue"> </span>
   <span class="score" id="score">Score: 0</span>
+  <span class="score" id="highScore">High Score: 0</span>
+  <!-- <span class="score" id="score">High Score: 0</span> -->
+  <div id="result"></div>
 </div>
 <div id="canvasContainer">Canvas Container</div>
 
 <script>
 var canvas = document.createElement('canvas');
-canvas.width = 640;
-canvas.height = 640;
+var canvas_size = 320
+canvas.width = canvas_size;
+canvas.height = canvas_size;
 canvas.id = 'game';
 
 var canvasContainer = document.getElementById('canvasContainer');
@@ -104,7 +107,8 @@ var speedValue = document.getElementById("speedValue");
 var canvasSize = { width: 640, height: 640 };
 var score = 0;
 var scoreDisplay = document.getElementById('score');
-
+var highScoreDisplay = document.getElementById('highScore');
+highScoreDisplay.textContent = 'High Score: ' + Number(localStorage.test2)
 speedSlider.addEventListener("input", function() {
   resetGame();
   speedValue.textContent = maxfps - this.value;
@@ -160,12 +164,22 @@ function loop() {
   snake.cells.forEach(function(cell, index) {
     context.fillRect(cell.x, cell.y, grid-1, grid-1);  
 
+    //if apple gets eaten reset that boi
     if (cell.x === apple.x && cell.y === apple.y) {
       snake.maxCells++;
-      apple.x = getRandomInt(0, 40) * grid;
-      apple.y = getRandomInt(0, 40) * grid;
+      apple.x = getRandomInt(0, (canvas_size/grid)) * grid;
+      apple.y = getRandomInt(0, (canvas_size/grid)) * grid;
       score += 10; 
+      
+      if (typeof(Storage) !== "undefined") {
+        if(localStorage.test2 <= score){
+          localStorage.test2 = Number(score);
+        }
+      }
+
       scoreDisplay.textContent = 'Score: ' + score;
+      highScoreDisplay.textContent = 'High Score: ' + Number(localStorage.test2)
+      
     }
 
     for (var i = index + 1; i < snake.cells.length; i++) {
@@ -175,7 +189,7 @@ function loop() {
     }
   });
 }
-
+//reset the game >:(
 function resetGame() {
   snake.x = 160;
   snake.y = 160;
@@ -184,12 +198,12 @@ function resetGame() {
   snake.dx = grid;
   snake.dy = 0;
 
-  apple.x = getRandomInt(0, 40) * grid;
-  apple.y = getRandomInt(0, 40) * grid;
+  apple.x = getRandomInt(0, (canvas_size/grid)) * grid;
+  apple.y = getRandomInt(0, (canvas_size/grid)) * grid;
   score = 0;
   scoreDisplay.textContent = 'Score: ' + score;
 }
-
+//move that snake :O
 document.addEventListener('keydown', function(e) {
   if (e.key === 'a' && snake.dx === 0) {
     snake.dx = -grid;
@@ -207,10 +221,31 @@ document.addEventListener('keydown', function(e) {
     resetGame();
   }
 });
-
+//the default settings
 function easyMode() {
+  canvas_size = 320
   resetGame();
+  canvas.width = canvas_size;
+  canvas.height = canvas_size;
+  canvas.id = 'game';
 }
+//mid mode
+function mediumMode() {
+  canvas_size = 480
+  resetGame();
+  canvas.width = canvas_size;
+  canvas.height = canvas_size;
+  canvas.id = 'game';
+}
+//chonky map :>
+function hardMode() {
+  canvas_size = 640
+  resetGame();
+  canvas.width = canvas_size;
+  canvas.height = canvas_size;
+  canvas.id = 'game';
+}
+
 requestAnimationFrame(loop);
 </script>
 

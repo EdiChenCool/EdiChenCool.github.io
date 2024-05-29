@@ -48,10 +48,29 @@
       <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
   </form> -->
-  <form action="welcome.php" method="POST">
-    Name: <input type="text" name="name"><br>
-    Password: <input type="password" name="password"><br>
-    <input type="submit">
-</form>
+  <form action="welcome.php">
+    <label for="fname">First name:</label><br>
+    <input type="text" id="fname" name="fname" value="John"><br>
+    <label for="lname">Last name:</label><br>
+    <input type="text" id="lname" name="lname" value="Doe"><br><br>
+    <input type="submit" value="Submit">
+  </form>
+
+  <script>
+    function clickCounter() {
+      if (typeof(Storage) !== "undefined") {
+        if (localStorage.clickcount) {
+          localStorage.clickcount = Number(localStorage.clickcount)+1;
+        } else {
+          localStorage.clickcount = 1;
+        }
+        document.getElementById("result").innerHTML = "You have clicked the button " + localStorage.clickcount + " time(s).";
+      } else {
+        document.getElementById("result").innerHTML = "Sorry, your browser does not support web storage...";
+      }
+    }
+    </script>
+
+  
 
 </body>
