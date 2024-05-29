@@ -24,8 +24,30 @@
   .slider-container {
     color: white;
     justify-content: space-around; 
+    
     margin-top: 20px;
   }
+  .slider {
+  flex: 1; /* Take up remaining space */
+  }
+
+  .score {
+  margin-left: 360px; /* Adjust margin to create space */
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff; /* Set text color to white */
+  animation: neon 1.5s infinite alternate;
+  }
+  @keyframes neon {
+  0% {
+    text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff, 0 0 70px #fff, 0 0 80px #fff, 0 0 100px #fff, 0 0 150px #fff;
+  }
+  100% {
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #fff, 0 0 20px #fff, 0 0 35px #fff, 0 0 40px #fff, 0 0 50px #fff, 0 0 75px #fff;
+  }
+}
+
+
   </style>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,8 +78,8 @@
   <input type="range" min="1" max="10" value="2" class="slider" id="speedSlider">
   <label for="speedSlider">Snake Speed: </label>
   <span id="speedValue"> </span>
+  <span class="score" id="score">Score: 0</span>
 </div>
-
 <div id="canvasContainer">Canvas Container</div>
 
 <script>
@@ -80,6 +102,8 @@ var maxfps = 11;
 var speedSlider = document.getElementById("speedSlider");
 var speedValue = document.getElementById("speedValue");
 var canvasSize = { width: 640, height: 640 };
+var score = 0;
+var scoreDisplay = document.getElementById('score');
 
 speedSlider.addEventListener("input", function() {
   resetGame();
@@ -140,6 +164,8 @@ function loop() {
       snake.maxCells++;
       apple.x = getRandomInt(0, 40) * grid;
       apple.y = getRandomInt(0, 40) * grid;
+      score += 10; 
+      scoreDisplay.textContent = 'Score: ' + score;
     }
 
     for (var i = index + 1; i < snake.cells.length; i++) {
@@ -160,6 +186,8 @@ function resetGame() {
 
   apple.x = getRandomInt(0, 40) * grid;
   apple.y = getRandomInt(0, 40) * grid;
+  score = 0;
+  scoreDisplay.textContent = 'Score: ' + score;
 }
 
 document.addEventListener('keydown', function(e) {
