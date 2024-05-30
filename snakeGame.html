@@ -108,8 +108,8 @@ var canvasSize = { width: 640, height: 640 };
 var score = 0;
 var scoreDisplay = document.getElementById('score');
 var highScoreDisplay = document.getElementById('highScore');
-if (typeof(Storage) == "undefined") {
-  localStorage.test2 = 0;
+if (localStorage.test2.equals("NaN")) {
+  localStorage.test2 = Number(0);
 }
 highScoreDisplay.textContent = 'High Score: ' + Number(localStorage.test2)
 speedSlider.addEventListener("input", function() {
