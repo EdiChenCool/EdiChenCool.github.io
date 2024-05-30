@@ -3,7 +3,6 @@
     overflow: hidden;
 }
 
-/* Style for the navigation links */
 .navbar a {
     float: left;
     display: block;
@@ -14,13 +13,11 @@
     font-family: 'Courier New', Courier, monospace;
 }
 
-/* Style for the dropdown container */
 .dropdown {
     float: left;
     overflow: hidden;
 }
 
-/* Style for the dropdown button */
 .dropdown-btn {
     font-size: 16px;
     border: none;
@@ -35,37 +32,81 @@
     display: none;
     position: absolute;
     background-color: #333;
-    width: 3000px; /* Adjusted width for dropdown content */
-    max-height: 100; /* Set maximum height for dropdown content */
-    overflow-y: auto; /* Enable vertical scrolling if content exceeds max height */
-    text-align: center; /* Left-align dropdown content */
-    left: 0; /* Left-align dropdown content */
+    width: 3000px;
+    max-height: 100; 
+    overflow-y: auto; 
+    text-align: center;
+    left: 0;
 }
 
 .dropdown-content a {
     color: #fff;
-    padding: 10px 200px; /* Adjusted padding for dropdown content buttons */
+    padding: 10px 200px; 
     text-decoration: none;
     display: block;
-    line-height: 30px; /* Set line height equal to button height */
-    min-width: 50px; /* Set a minimum width for all buttons */
+    line-height: 30px; 
+    min-width: 50px; 
   
 }
 
-/* Change color on hover */
 .navbar a:hover, .dropdown:hover .dropdown-btn {
     background-color: red;
 }
 
-
-/* Show the dropdown content when the dropdown is hovered */
 .dropdown:hover .dropdown-content {
     display: block;
 }
 .navbar a:first-child {
-    margin-left: 20px; /* Adjusted margin */
+    margin-left: 20px; 
 }
 
 .navbar a:not(:first-child) {
-    margin-left: 10px; /* Adjusted margin for all links except the first */
+    margin-left: 10px;
+}
+.leaderboard-container {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: 300px;
+    margin-top: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.leaderboard {
+    list-style: none;
+    padding: 0;
+}
+
+.leaderboard li {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group input {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 0 0 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.form-group button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background-color: #28a745;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
 }
