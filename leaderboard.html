@@ -78,11 +78,8 @@
         const nameInput = document.getElementById('name');
         const pointsInput = document.getElementById('points');
         const pointsContainer = document.getElementById('pointsContainer');
-        const submitButton = document.getElementById('submitButton');
         
         const API_URL = 'http://localhost:3000/leaderboard';
-
-        const scoreSubmitted = localStorage.getItem('scoreSubmitted');
 
         async function fetchScores() {
             const response = await fetch(API_URL);
@@ -98,12 +95,6 @@
         }
 
         async function addScore() {
-
-            if (scoreSubmitted) {
-                alert('Score already submitted!');
-                return;
-            }
-
             const name = nameInput.value;
             const points = Number(localStorage.test2);
             if (name && points >= 0) {
@@ -114,12 +105,9 @@
                     },
                     body: JSON.stringify({ name, points })
                 });
-                localStorage.setItem('scoreSubmitted', 'true');
                 nameInput.value = '';
                 pointsInput.value = '';
                 fetchScores();
-
-                submitButton.disabled = true;
             }
         }
 
